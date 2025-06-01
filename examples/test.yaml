@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+
+  carto:
+    image: sverhoeven/cartodb:py3pg12postgis3
+    restart: unless-stopped
+    container_name: carto
+    ports:
+      - 42013:80
+    environment:
+      CARTO_HOSTNAME: carto.dea
+    volumes:
+      - ./carto:/var/lib/postgresql # ensure "chmod 750 ./carto/12 && chmod 750 ./carto/12/main && chown -R 103:105 ./carto" and fill up with data as mentioned in ../README.md
+
