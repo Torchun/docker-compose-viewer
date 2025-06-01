@@ -89,3 +89,15 @@ services:
 
 - Ссылки в колонке "Links" генерируются только для проброшенных портов, если указан IP (`--service-ip`).
 - Все порты, переменные и тома отображаются как есть, в том числе в случае сложных форматов.
+
+## Сборка docker
+
+```commandline
+docker build -t docker-compose-viewer:preview .
+```
+
+```commandline
+docker run -d -ti \
+  -v $(pwd):/app/data \
+  docker-compose-viewer:preview /app/docker_compose_viewer.py -s 192.168.1.70
+```
