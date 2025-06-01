@@ -140,25 +140,31 @@ TEMPLATE = """
                 {% endfor %}
               </td>
               <td class="ports-col">
+{%- if service.ports -%}
                 <pre>
-{% for p in service.ports %}
+{%- for p in service.ports %}
 {{ p.replace(":", " → ") }}
-{% endfor %}
+{%- endfor %}
                 </pre>
+{%- endif -%}
               </td>
               <td class="volumes-col">
+{%- if service.volumes -%}
                 <pre>
-{% for v in service.volumes %}
+{%- for v in service.volumes %}
 {{ v.replace(":", " → ") }}
-{% endfor %}
+{%- endfor %}
                 </pre>
+{%- endif -%}
               </td>
               <td class="env-col">
+{%- if service.environment -%}
                 <pre>
-{% for e in service.environment %}
+{%- for e in service.environment %}
 {{ e }}
-{% endfor %}
+{%- endfor %}
                 </pre>
+{%- endif -%}
               </td>
             </tr>
           {% endfor %}
