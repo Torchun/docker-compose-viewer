@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  docker-compose-viewer:
+    image: docker-compose-viewer:preview
+    restart: unless-stopped
+    container_name: "docker-compose-viewer"
+    volumes:
+      - ./:/app/server/infra # ensure "chown -R 200:200 ./nexus/data"
+    ports:
+      - 42000:8888
+    command:
+      - "/app/docker_compose_viewer.py"
+      - "-s"
+      - "192.168.1.70"

@@ -99,5 +99,6 @@ docker build -t docker-compose-viewer:preview .
 ```commandline
 docker run -d -ti \
   -v $(pwd):/app/data \
+  -p 8888:8888 \
   docker-compose-viewer:preview /app/docker_compose_viewer.py -s 192.168.1.70
 ```
